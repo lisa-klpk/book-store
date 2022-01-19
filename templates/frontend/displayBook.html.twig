@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h2>{{ book.name }}</h2>
+    <p>
+        <a href="{{ path('app_frontend_modifyBook', {id: book.id}) }}">Modifier</a>
+        <br />
+        <a href="{{ path('app_frontend_deleteBook', {id: book.id}) }}">Supprimer</a>
+    </p>
+    <p>{{ book.description }}</p>
+    <p>Prix : {{ book.price }}</p>
+    <img src="{{ book.image }}" alt="{{ book.name }}" />
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <p>
+        Le genre {{ author.name }} à bien été supprimé
+        <br />
+        <a href="{{ path('app_admin_author_list') }}">Retour à la liste</a>
+    </p>
+{% endblock %}

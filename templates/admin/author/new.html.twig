@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <p>
+        <a href="{{ path('app_admin_author_list') }}">Retour à la liste</a>
+    </p>
+
+    {{ form(form) }}
+{% endblock %}

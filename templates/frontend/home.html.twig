@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<h1>Librairie</h1>
+
+{% for book in books %}
+    <div>
+        <p>{{ book.name }}</p>
+        <p>Prix : {{ book.price }} €</p>
+        <p>Autheur : {{ book.author.name }}</p>
+        <p>Genre : {{ book.kind.name }}</p>
+        <a href="{{ path('app_frontend_displayBook', {id: book.id}) }}">Voir le livre</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+{% embed 'partials/list.html.twig' %}
+    {% block title %}
+        Liste des auteurs
+    {% endblock %}
+
+    {% block createLink %}
+        {% if is_granted('ROLE_USER') %}
+            <a href="{{ path('app_admin_author_new') }}">Ajouter un auteur</a>
+        {% endif %}
+    {% endblock %}
+
+    {% block displayBlock %}
+        <div>
+            <p>Nom de l'auteur : {{ entity.name }}</p>
+        </div>
+    {% endblock %}
+
+    {% block modifyLink %}
+        <a href="{{ path('app_admin_author_modify', {id: entity.id}) }}">Modifier</a>
+    {% endblock %}
+
+    {% block deleteLink %}
+        <a href="{{ path('app_admin_author_delete', {id: entity.id}) }}">Supprimer</a>
+    {% endblock %}
+{% endembed %}
+
+{% endblock %}

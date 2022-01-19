@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+{{ form(form) }}
+
+
+{% if books is empty %}
+    <p>Il n'y a aucun livres qui correspond à votre recherche :(</p>
+{% endif %}
+
+{% for book in books %}
+    <div>
+        <p>{{ book.name }}</p>
+        <p>Prix : {{ book.price }} €</p>
+        <a href="{{ path('app_frontend_displayBook', {id: book.id}) }}">Voir le livre</a>
+    </div>
+{% endfor %}
+
+{% endblock %}

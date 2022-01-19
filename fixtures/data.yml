@@ -1,0 +1,41 @@
+App\Entity\User:
+    test:
+        email: test@mail.com
+        roles: [ROLE_USER]
+        # password: test
+        password: \$2y\$13\$7r.zDxGBCqEiIC/tHs3AmOvhZeUa6paxd3RcYdHZjwTDd2pgWS.7m
+
+App\Entity\BookKind:
+    scifi:
+        name: Science Fiction
+    fantasy:
+        name: Fantasy
+    kind{1..30}:
+        name: <word()>
+
+App\Entity\Author:
+    author1:
+        name: J.K. Rowling
+        description: sdlfkhsflksdhfldsf
+    author2:
+        name: Stephen King
+        description: sdlfkhsflksdhfldsf
+    author{3..30}:
+        name: <word()> <word()>
+        description: <paragraph()>
+
+App\Entity\Book:
+    book1:
+        name: Harry Potter
+        description: Harry Potter 1
+        image: sdlfkhsdflksdhflksdh
+        price: 8.5
+        kind: "@scifi"
+        author: "@author1"
+    book_{1..30}:
+        name: <word()>
+        description: <paragraph()>
+        image: <imageUrl(640, 640, 'books')>
+        price: <randomFloat()>
+        kind: "@kind*"
+        author: "@author*"

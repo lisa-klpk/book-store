@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+
+{{ form_start(form) }}
+    <div class="form-control">
+        <div class="label-container">
+        {{ form_label(form.name) }}
+        </div>
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {
+            attr: {
+                class: 'inpt large'
+            }
+        }) }}
+        <hr />
+    </div>
+{{ form_end(form) }}
+
+
+{% endblock %}
